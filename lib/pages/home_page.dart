@@ -1,4 +1,4 @@
-import 'package:codigo6_whatsapp/chat_page.dart';
+import 'package:codigo6_whatsapp/pages/chat_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -52,12 +52,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           // indicatorPadding:
           //   EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
           labelColor: Colors.white,
-          labelStyle: TextStyle(
+          labelStyle: const TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 14.0,
           ),
           unselectedLabelColor: Colors.white70,
-          tabs: [
+          tabs: const [
             Tab( icon: Icon(Icons.group)),
             Tab(text: "CHATS"),
             Tab(text: "STATUS"),
@@ -67,15 +67,15 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){},
-        child: Icon(Icons.message),
+        child: const Icon(Icons.message),
       ),
       body: TabBarView(
         controller: myTabController,
         children: [
-          Text("Hola"),
+          const Text("Hola"),
           ChatPage(),
-          Text("Hola"),
-          Text("Hola"),
+          const Text("Hola"),
+          const Text("Hola"),
         ],
       ),
     );

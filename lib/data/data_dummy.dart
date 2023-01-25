@@ -9,6 +9,8 @@ class DataDummy {
       message: "Hola como estas?",
       time: "14:23",
       date: "12/02",
+      isTyping: true,
+      countMessage: 4,
     ),
     ChatModel(
       avatar:
@@ -17,6 +19,8 @@ class DataDummy {
       message: "Hola como estas?",
       time: "11:23",
       date: "31/02",
+      isTyping: false,
+      countMessage: 10,
     ),
     ChatModel(
       avatar:
@@ -25,6 +29,8 @@ class DataDummy {
       message: "Ya he enviado lo solicitado",
       time: "05:23",
       date: "20/02",
+      isTyping: false,
+      countMessage: 0,
     ),
     ChatModel(
       avatar:
@@ -33,6 +39,8 @@ class DataDummy {
       message: "Gracias por el encargo",
       time: "15:29",
       date: "21/02",
+      isTyping: true,
+      countMessage: 0,
     ),
     ChatModel(
       avatar:
@@ -41,6 +49,8 @@ class DataDummy {
       message: "A las 5:00 pm nos reunimos para ver el proyecto",
       time: "20:15",
       date: "11/02",
+      isTyping: false,
+      countMessage: 2,
     ),
   ];
 }

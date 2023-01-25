@@ -1,4 +1,4 @@
-import 'package:codigo6_whatsapp/home_page.dart';
+import 'package:codigo6_whatsapp/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,11 +18,11 @@ class MyApp extends StatelessWidget {
         // brightness: Brightness.dark,
           scaffoldBackgroundColor:Colors.white,
           fontFamily: "Manrope",
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xff075E56),
         ),
         // useMaterial3: true,
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: Color(0xff10CE5F),
         )
       ),

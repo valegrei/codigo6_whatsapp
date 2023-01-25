@@ -4,6 +4,8 @@ class ChatModel {
   String message;
   String time;
   String date;
+  bool isTyping;
+  int countMessage;
 
   ChatModel({
     required this.avatar,
@@ -11,5 +13,7 @@ class ChatModel {
     required this.message,
     required this.time,
     required this.date,
+    required this.isTyping,
+    required this.countMessage,
   });
 }

@@ -1,13 +1,21 @@
 import 'package:codigo6_whatsapp/models/chat_model.dart';
+import 'package:codigo6_whatsapp/pages/chat_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class ItemChatWidget extends StatelessWidget {
   ChatModel dataChat;
-  ItemChatWidget({required this.dataChat});
+
+  ItemChatWidget({super.key, required this.dataChat});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ChatDetailPage(
+          image: dataChat.avatar, name: dataChat.name,
+        )));
+      },
       leading: CircleAvatar(
         backgroundImage: NetworkImage(dataChat.avatar),
         backgroundColor: Colors.black12,
@@ -20,12 +28,16 @@ class ItemChatWidget extends StatelessWidget {
         ),
       ),
       subtitle: Text(
-        dataChat.message,
+        dataChat.isTyping ? "typing..." : dataChat.message,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
+        style: TextStyle(
+            color:
+                dataChat.isTyping ? const Color(0xff10CE5F) : Colors.black54),
       ),
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             dataChat.time,
@@ -35,6 +47,19 @@ class ItemChatWidget extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
+          dataChat.countMessage > 0
+              ? Container(
+                  padding: const EdgeInsets.all(6.0),
+                  decoration: const BoxDecoration(
+                    color: Color(0xff10CE5F),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Text(
+                    dataChat.countMessage.toString(),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                )
+              : const SizedBox()
         ],
       ),
     );
