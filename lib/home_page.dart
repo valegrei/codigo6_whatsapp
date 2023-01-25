@@ -1,3 +1,4 @@
+import 'package:codigo6_whatsapp/chat_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,7 +14,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   void initState() {
     // TODO: implement initState
     super.initState();
-    print("INITTTTTTTT");
+    // print("INITTTTTTTT");
     myTabController = TabController(length: 4, vsync: this);
   }
 
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    print("BUILDDDDDDDDD");
+    // print("BUILDDDDDDDDD");
     return Scaffold(
       appBar: AppBar(
         title: Text("Whatsapp"),
@@ -67,6 +68,15 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       floatingActionButton: FloatingActionButton(
         onPressed: (){},
         child: Icon(Icons.message),
+      ),
+      body: TabBarView(
+        controller: myTabController,
+        children: [
+          Text("Hola"),
+          ChatPage(),
+          Text("Hola"),
+          Text("Hola"),
+        ],
       ),
     );
   }
