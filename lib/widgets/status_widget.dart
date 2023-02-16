@@ -21,6 +21,7 @@ class StatusWidget extends StatelessWidget {
               backgroundImage: NetworkImage(
                   status.avatar,
               ),
+              backgroundColor: Colors.black12,
               radius: 22,
             ),
           ),

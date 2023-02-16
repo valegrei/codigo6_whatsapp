@@ -9,37 +9,39 @@ class StatusPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const MyStatusWidget(),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: Text("Recent updates"),
-        ),
-        ListView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: data.sinVer.length,
-          itemBuilder: (BuildContext context, int index) {
-            return StatusWidget(status: data.sinVer[index]);
-          },
-        ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: Text(
-            "Viewed udates",
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const MyStatusWidget(),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Text("Recent updates"),
           ),
-        ),
-        ListView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: data.vistos.length,
-          itemBuilder: (BuildContext context, int index) {
-            return StatusWidget(status: data.vistos[index]);
-          },
-        ),
-      ],
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: data.sinVer.length,
+            itemBuilder: (BuildContext context, int index) {
+              return StatusWidget(status: data.sinVer[index]);
+            },
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
+              "Viewed udates",
+            ),
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: data.vistos.length,
+            itemBuilder: (BuildContext context, int index) {
+              return StatusWidget(status: data.vistos[index]);
+            },
+          ),
+        ],
+      ),
     );
   }
 }

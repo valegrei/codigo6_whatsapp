@@ -1,3 +1,4 @@
+import '../models/call_model.dart';
 import '../models/chat_model.dart';
 import '../models/message_model.dart';
 import '../models/status_model.dart';
@@ -103,6 +104,57 @@ class DataDummy {
       name: "Angela Torres Durán",
       time: "Yesterday, 8:42 PM",
       visto: true,
+    ),
+  ];
+
+  List<CallModel> llamadas = [
+    CallModel(
+      avatar:
+      "https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg",
+      name: "Miguel Hernandez",
+      time: "1 minute ago",
+      entrante: true,
+      videollamada: true,
+    ),
+    CallModel(
+      avatar:
+      "https://images.pexels.com/photos/2102415/pexels-photo-2102415.jpeg",
+      name: "Roxana Maldonado Diaz",
+      time: "February 2, 10:34 PM",
+      entrante: true,
+      videollamada: false,
+    ),
+    CallModel(
+      avatar:
+      "https://images.pexels.com/photos/879109/pexels-photo-879109.jpeg",
+      name: "Daniel Arias",
+      time: "January 24, 1:36 PM",
+      entrante: false,
+      videollamada: false,
+    ),
+    CallModel(
+      avatar:
+      "https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg",
+      name: "Miguel Hernandez",
+      time: "12/6/22, 11:54 AM",
+      entrante: true,
+      videollamada: true,
+    ),
+    CallModel(
+      avatar:
+      "https://images.pexels.com/photos/2102415/pexels-photo-2102415.jpeg",
+      name: "Roxana Maldonado Diaz",
+      time: "10/5/22, 8:23 AM",
+      entrante: false,
+      videollamada: true,
+    ),
+    CallModel(
+      avatar:
+      "https://images.pexels.com/photos/879109/pexels-photo-879109.jpeg",
+      name: "Daniel Arias",
+      time: "25/2/22, 2:35 PM",
+      entrante: true,
+      videollamada: false,
     ),
   ];
 }

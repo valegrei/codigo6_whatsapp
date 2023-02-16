@@ -1,6 +1,9 @@
 import 'package:codigo6_whatsapp/pages/chat_page.dart';
+import 'package:codigo6_whatsapp/pages/community_page.dart';
 import 'package:codigo6_whatsapp/pages/status_page.dart';
 import 'package:flutter/material.dart';
+
+import 'calls_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -71,10 +74,10 @@ class _HomePageState extends State<HomePage>
       body: TabBarView(
         controller: myTabController,
         children: [
-          const Text("Hola"),
+          CommunityPage(),
           ChatPage(),
           StatusPage(),
-          const Text("Hola"),
+          CallsPage(),
         ],
       ),
     );
