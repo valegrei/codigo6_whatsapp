@@ -1,4 +1,5 @@
-import 'package:codigo6_whatsapp/models/chat_model.dart';
+import '../models/chat_model.dart';
+import '../models/message_model.dart';
 
 class DataDummy {
   List<ChatModel> chats = [
@@ -34,7 +35,7 @@ class DataDummy {
     ),
     ChatModel(
       avatar:
-      "https://images.pexels.com/photos/360591/pexels-photo-360591.jpeg",
+          "https://images.pexels.com/photos/360591/pexels-photo-360591.jpeg",
       name: "Alejandro Martinez",
       message: "Gracias por el encargo",
       time: "15:29",
@@ -44,13 +45,36 @@ class DataDummy {
     ),
     ChatModel(
       avatar:
-      "https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg",
+          "https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg",
       name: "Miguel Hernandez",
       message: "A las 5:00 pm nos reunimos para ver el proyecto",
       time: "20:15",
       date: "11/02",
       isTyping: false,
       countMessage: 2,
+    ),
+  ];
+
+  List<MessageModel> messages = [
+    MessageModel(
+        message: "Hola",
+        type: "other",
+        time: "10:30"
+    ),
+    MessageModel(
+        message: "Hola, Cómo estas?",
+        type: "me",
+        time: "10:31"
+    ),
+    MessageModel(
+        message: "Estás estudiando Flutter?",
+        type: "other",
+        time: "10:32"
+    ),
+    MessageModel(
+        message: "Sí, ahora estoy practicando",
+        type: "me",
+        time: "10:32"
     ),
   ];
 }
