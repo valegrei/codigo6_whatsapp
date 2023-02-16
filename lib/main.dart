@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor:Colors.white,
           fontFamily: "Manrope",
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xff075E56),
+          backgroundColor: Color(0xff008069),
         ),
         // useMaterial3: true,
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Color(0xff10CE5F),
+          backgroundColor: Color(0xff02a884),
         )
       ),
       home: HomePage(),

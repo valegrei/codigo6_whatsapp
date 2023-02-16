@@ -2,20 +2,21 @@ import 'package:codigo6_whatsapp/pages/chat_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin{
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   late TabController myTabController;
+  int currentIndex = 1;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     // print("INITTTTTTTT");
-    myTabController = TabController(length: 4, vsync: this);
+    myTabController = TabController(initialIndex: 1, length: 4, vsync: this);
   }
 
   @override
@@ -29,20 +30,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     // print("BUILDDDDDDDDD");
     return Scaffold(
       appBar: AppBar(
-        title: Text("Whatsapp"),
+        title: const Text("Whatsapp"),
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.camera_alt_outlined)
-          ),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.search)
-          ),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.more_vert)
-          ),
+              onPressed: () {}, icon: const Icon(Icons.camera_alt_outlined)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
         ],
         bottom: TabBar(
           controller: myTabController,
@@ -58,17 +51,22 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           ),
           unselectedLabelColor: Colors.white70,
           tabs: const [
-            Tab( icon: Icon(Icons.group)),
+            Tab(icon: Icon(Icons.group)),
             Tab(text: "CHATS"),
             Tab(text: "STATUS"),
             Tab(text: "CALLS"),
           ],
+          onTap: (int index) {
+            currentIndex = index;
+            setState(() {});
+          },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        child: const Icon(Icons.message),
-      ),
+      floatingActionButton: currentIndex == 0
+          ? null
+          : MyFAB(
+              position: currentIndex,
+            ),
       body: TabBarView(
         controller: myTabController,
         children: [
@@ -79,5 +77,46 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         ],
       ),
     );
+  }
+}
+
+class MyFAB extends StatelessWidget {
+  int position;
+
+  MyFAB({
+    Key? key,
+    required this.position,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    switch (position) {
+      case 1:
+        return FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.message),
+        );
+      case 2:
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FloatingActionButton.small(
+              onPressed: () {},
+              backgroundColor: const Color(0xffebecee),
+              child: const Icon(Icons.edit, color: Color(0xff576570),),
+            ),
+            const SizedBox(height: 16,),
+            FloatingActionButton(
+              onPressed: () {},
+              child: const Icon(Icons.camera_alt),
+            ),
+          ],
+        );
+      default:
+        return FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add_call),
+        );
+    }
   }
 }
