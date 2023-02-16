@@ -93,7 +93,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
               }),
           Align(
               alignment: Alignment.bottomCenter,
-              child: Container(
+              child: SizedBox(
                 height: 60,
                 width: double.infinity,
                 child: Row(
