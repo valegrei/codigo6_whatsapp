@@ -1,9 +1,10 @@
+import 'package:codigo6_whatsapp/models/message_model.dart';
 import 'package:codigo6_whatsapp/widgets/item_message_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../data/data_dummy.dart';
 
-class ChatDetailPage extends StatelessWidget {
+class ChatDetailPage extends StatefulWidget {
   String image;
   String name;
 
@@ -13,7 +14,14 @@ class ChatDetailPage extends StatelessWidget {
     required this.name,
   });
 
+  @override
+  State<ChatDetailPage> createState() => _ChatDetailPageState();
+}
+
+class _ChatDetailPageState extends State<ChatDetailPage> {
   DataDummy data = DataDummy();
+  bool isTyping = false;
+  TextEditingController messageController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +43,7 @@ class ChatDetailPage extends StatelessWidget {
               CircleAvatar(
                 radius: 20,
                 backgroundColor: Colors.white12,
-                backgroundImage: NetworkImage(image),
+                backgroundImage: NetworkImage(widget.image),
               ),
             ],
           ),
@@ -51,7 +59,7 @@ class ChatDetailPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    widget.name,
                     style: const TextStyle(
                       fontSize: 16.0,
                     ),
@@ -95,6 +103,11 @@ class ChatDetailPage extends StatelessWidget {
                     ),
                     Expanded(
                       child: TextField(
+                        controller: messageController,
+                        onChanged: (String value) {
+                          isTyping = value.trim().isNotEmpty;
+                          setState(() {});
+                        },
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
@@ -105,19 +118,21 @@ class ChatDetailPage extends StatelessWidget {
                           ),
                           suffixIcon: Row(
                             mainAxisSize: MainAxisSize.min,
-                            children: const [
-                              Icon(
+                            children: [
+                              const Icon(
                                 Icons.attach_file,
                                 color: Color(0xff8796a2),
                               ),
                               SizedBox(
-                                width: 16,
+                                width: isTyping ? 0 : 16,
                               ),
-                              Icon(
-                                Icons.camera_alt,
-                                color: Color(0xff8796a2),
-                              ),
-                              SizedBox(
+                              isTyping
+                                  ? const SizedBox()
+                                  : const Icon(
+                                      Icons.camera_alt,
+                                      color: Color(0xff8796a2),
+                                    ),
+                              const SizedBox(
                                 width: 12,
                               ),
                             ],
@@ -140,16 +155,30 @@ class ChatDetailPage extends StatelessWidget {
                     const SizedBox(
                       width: 8,
                     ),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: const BoxDecoration(
-                        color: Color(0xff00a884),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.mic,
-                        size: 30,
-                        color: Colors.white,
+                    GestureDetector(
+                      onTap: () {
+                        if (isTyping) {
+                          data.messages.add(MessageModel(
+                            message: messageController.text,
+                            type: "me",
+                            time: "04:15",
+                          ));
+                          messageController.text = "";
+                          isTyping = false;
+                          setState(() {});
+                        }
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(13),
+                        decoration: const BoxDecoration(
+                          color: Color(0xff00a884),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          isTyping ? Icons.send : Icons.mic,
+                          size: 24,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                     const SizedBox(
