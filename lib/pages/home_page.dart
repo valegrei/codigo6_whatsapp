@@ -1,4 +1,5 @@
 import 'package:codigo6_whatsapp/pages/chat_page.dart';
+import 'package:codigo6_whatsapp/pages/status_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -52,9 +53,9 @@ class _HomePageState extends State<HomePage>
           unselectedLabelColor: Colors.white70,
           tabs: const [
             Tab(icon: Icon(Icons.group)),
-            Tab(text: "CHATS"),
-            Tab(text: "STATUS"),
-            Tab(text: "CALLS"),
+            Tab(text: "Chats"),
+            Tab(text: "Status"),
+            Tab(text: "Calls"),
           ],
           onTap: (int index) {
             currentIndex = index;
@@ -72,7 +73,7 @@ class _HomePageState extends State<HomePage>
         children: [
           const Text("Hola"),
           ChatPage(),
-          const Text("Hola"),
+          StatusPage(),
           const Text("Hola"),
         ],
       ),

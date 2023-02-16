@@ -1,5 +1,6 @@
 import '../models/chat_model.dart';
 import '../models/message_model.dart';
+import '../models/status_model.dart';
 
 class DataDummy {
   List<ChatModel> chats = [
@@ -56,25 +57,52 @@ class DataDummy {
   ];
 
   List<MessageModel> messages = [
+    MessageModel(message: "Hola", type: "other", time: "10:30"),
+    MessageModel(message: "Hola, Cómo estas?", type: "me", time: "10:31"),
     MessageModel(
-        message: "Hola",
-        type: "other",
-        time: "10:30"
+        message: "Estás estudiando Flutter?", type: "other", time: "10:32"),
+    MessageModel(
+        message: "Sí, ahora estoy practicando", type: "me", time: "10:32"),
+  ];
+
+  List<StatusModel> sinVer = [
+    StatusModel(
+      avatar:
+          "https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg",
+      name: "Miguel Hernandez",
+      time: "1 minute ago",
+      visto: false,
     ),
-    MessageModel(
-        message: "Hola, Cómo estas?",
-        type: "me",
-        time: "10:31"
+    StatusModel(
+      avatar:
+          "https://images.pexels.com/photos/2102415/pexels-photo-2102415.jpeg",
+      name: "Roxana Maldonado Diaz",
+      time: "Yesterday, 10:42 PM",
+      visto: false,
     ),
-    MessageModel(
-        message: "Estás estudiando Flutter?",
-        type: "other",
-        time: "10:32"
+    StatusModel(
+      avatar:
+          "https://images.pexels.com/photos/879109/pexels-photo-879109.jpeg",
+      name: "Daniel Arias",
+      time: "Yesterday, 9:36 PM",
+      visto: false,
     ),
-    MessageModel(
-        message: "Sí, ahora estoy practicando",
-        type: "me",
-        time: "10:32"
+  ];
+
+  List<StatusModel> vistos = [
+    StatusModel(
+      avatar:
+      "https://images.pexels.com/photos/360591/pexels-photo-360591.jpeg",
+      name: "Alejandro Martinez",
+      time: "24 minute ago",
+      visto: true,
+    ),
+    StatusModel(
+      avatar:
+      "https://images.pexels.com/photos/1181371/pexels-photo-1181371.jpeg",
+      name: "Angela Torres Durán",
+      time: "Yesterday, 8:42 PM",
+      visto: true,
     ),
   ];
 }
